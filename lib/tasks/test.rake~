@@ -1,0 +1,6 @@
+require File.expand_path(File.dirname(__FILE__) + "/../../config/enviroment")
+
+desc "test"
+task(:qq) do
+	  puts Student.find_all.inspect
+end

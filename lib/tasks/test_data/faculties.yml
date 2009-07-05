@@ -1,0 +1,8 @@
+---
+  - {short_name: "АФ",    full_name: "Автомобильный факультет",                                      number: 1, outer_id: 1}
+  - {short_name: "ФЭМИТ", full_name: "Факультет экономики, менеджмента и информационных технологий", number: 2, outer_id: 2}
+  - {short_name: "ФПМТФ", full_name: "Факультет прикладной математики и технической физики",         number: 3, outer_id: 3}
+  - {short_name: "ЮФ",    full_name: "Юридический факультет",                                        number: 4, outer_id: 4}
+  - {short_name: "ФПК",   full_name: "Факультет повышения квалификации",                             number: 5, outer_id: 5}
+  - {short_name: "ФДО",   full_name: "Факультет довузовского образования",                           number: 6, outer_id: 6}
+  - {short_name: "ИДО",   full_name: "Институт дистанционного образования",                          number: 7, outer_id: 7}

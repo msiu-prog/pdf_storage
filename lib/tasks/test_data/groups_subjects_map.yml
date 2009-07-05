@@ -1,0 +1,13 @@
+---
+  - {group_outer_id:  1, subject_outer_ids: [22, 2, 16, 4, 5, 6, 7, 8, 9, 10, 19]}
+  - {group_outer_id:  2, subject_outer_ids: [12, 13, 14, 25, 16, 17, 18, 19, 20, 21, 22, 23, 9]}
+  - {group_outer_id:  3, subject_outer_ids: [19, 13, 25, 26, 27, 16, 17, 28, 29, 30, 22, 23]}
+  - {group_outer_id:  4, subject_outer_ids: [31, 25, 26, 28, 19, 32, 13, 16, 17, 33, 29, 22]}
+  - {group_outer_id:  5, subject_outer_ids: [34, 35, 2, 16, 17, 36, 8, 7, 10, 6, 22, 9]}
+  - {group_outer_id:  6, subject_outer_ids: [12, 37, 38, 16, 17, 18, 20, 21, 13, 14, 22, 23, 9]}
+  - {group_outer_id:  7, subject_outer_ids: [19, 13, 39, 26, 27, 16, 17, 28, 29, 22, 23]}
+  - {group_outer_id:  8, subject_outer_ids: [31, 39, 26, 28, 19, 32, 40, 16, 17, 33, 29, 22]}
+  - {group_outer_id:  9, subject_outer_ids: [26, 16, 19, 32, 29, 41, 30, 42, 22, 23]}
+  - {group_outer_id: 10, subject_outer_ids: [28, 43, 44, 16, 33, 19, 29, 41, 22]}
+  - {group_outer_id: 11, subject_outer_ids: [28, 45, 46, 42, 47, 16, 17, 48, 29, 49, 22, 23, 50]}
+  - {group_outer_id: 12, subject_outer_ids: [45, 42, 16, 17, 51, 52, 53, 54, 55, 56, 22, 9, 57]}

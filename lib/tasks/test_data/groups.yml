@@ -1,0 +1,13 @@
+---
+  - {name: "4311", year: 2008, outer_id: 1,  faculty_outer_id: 3}
+  - {name: "3311", year: 2008, outer_id: 2,  faculty_outer_id: 3}
+  - {name: "2311", year: 2007, outer_id: 3,  faculty_outer_id: 3}
+  - {name: "1311", year: 2007, outer_id: 4,  faculty_outer_id: 3}
+  - {name: "4361", year: 2008, outer_id: 5,  faculty_outer_id: 3}
+  - {name: "3361", year: 2008, outer_id: 6,  faculty_outer_id: 3}
+  - {name: "2361", year: 2007, outer_id: 7,  faculty_outer_id: 3}
+  - {name: "1361", year: 2007, outer_id: 8,  faculty_outer_id: 3}
+  - {name: "2361", year: 2008, outer_id: 9,  faculty_outer_id: 3}
+  - {name: "1361", year: 2008, outer_id: 10, faculty_outer_id: 3}
+  - {name: "2123", year: 2008, outer_id: 11, faculty_outer_id: 1}
+  - {name: "4126", year: 2008, outer_id: 12, faculty_outer_id: 1}

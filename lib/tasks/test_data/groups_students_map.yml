@@ -1,0 +1,6 @@
+---
+  - {id_postfix: 4311, groups_outer_ids: [1, 2, 3, 4]}
+  - {id_postfix: 4361, groups_outer_ids: [5, 6, 7, 8]}
+  - {id_postfix: 2361, groups_outer_ids: [9, 10]}
+  - {id_postfix: 2123, groups_outer_ids: [11]}
+  - {id_postfix: 4126, groups_outer_ids: [12]}

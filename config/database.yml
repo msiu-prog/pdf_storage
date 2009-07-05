@@ -13,8 +13,9 @@ development:
   encoding: unicode
   database: pdf_storage_development
   pool: 5
+  port: 5432
   username: pdf_storage
-  password:
+  password: pdf_storage
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -39,13 +40,15 @@ test:
   encoding: unicode
   database: pdf_storage_test
   pool: 5
+  port: 5432
   username: pdf_storage
-  password:
+  password: pdf_storage
 
 production:
   adapter: postgresql
   encoding: unicode
   database: pdf_storage_production
   pool: 5
+  port: 5432
   username: pdf_storage
-  password:
+  password: pdf_storage

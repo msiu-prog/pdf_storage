@@ -1,0 +1,2 @@
+class GroupStudent < ActiveRecord::Base
+end
