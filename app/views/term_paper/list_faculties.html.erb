@@ -1,0 +1,4 @@
+<% @faculties.each do |f| %>
+<li><%= link_to f.name, :action => "list_groups", :id => f.id %></li>
+<% end %>
+<li><%= link_to "Все факультеты", :action => "list_groups", :id => 0 %></li>

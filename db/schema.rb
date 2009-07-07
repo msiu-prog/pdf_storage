@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20090703102246) do
   create_table "groups", :force => true do |t|
     t.string   "name",       :limit => 16, :null => false
     t.integer  "year",                     :null => false
+    t.integer  "semester",                 :null => false
     t.integer  "faculty_id",               :null => false
     t.integer  "outer_id",                 :null => false
     t.datetime "created_at"

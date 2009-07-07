@@ -3,6 +3,7 @@ class CreateGroups < ActiveRecord::Migration
     create_table :groups do |t|
       t.string :name, :limit => 16, :null => false
       t.integer :year, :null => false
+      t.integer :semester, :null => false
       
       t.references :faculty, :null => false
 

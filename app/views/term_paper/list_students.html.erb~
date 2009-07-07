@@ -1,0 +1,3 @@
+<% @students.each do |s| %>
+<li><%= s.full_name %></li>
+<% end %>

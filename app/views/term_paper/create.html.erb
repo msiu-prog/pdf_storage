@@ -1,0 +1,10 @@
+<h2><%= @student.full_name %></h2>
+<h3><%= @subject.name %></h3>
+<% form_for @term_paper, :url => "create_commit" do |f| %>
+  <%= f.hidden_field :group_subject_id %>
+  <%= f.hidden_field :student_id %>
+  Имя преподавателя: <%= f.text_field :teacher_name %> <br />
+  Оценка: <%= f.select :mark, TermPaper::MARKS.map{|k, v| [v, k]} %> <br />
+  Курсовая работа: <%= f.file_field :file %> <br />
+  <%= f.submit "Сохранить" %>
+<% end %>

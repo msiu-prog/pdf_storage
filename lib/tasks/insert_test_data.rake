@@ -1,8 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + "/../../config/environment")
 require 'yaml'
 
-# RAILS_ROOT
-
 def get_data(file)
   array = []
   dirty = YAML.load_file("#{RAILS_ROOT}/lib/tasks/test_data/#{file}")
@@ -82,6 +80,7 @@ namespace :insert do
 
     groups.each do |row|
       f_id = row.delete(:faculty_outer_id)
+      row[:semester] = row[:name].to_i/1000
       Faculty.find(:first, :conditions => ["outer_id = ?", f_id]).groups.create(row)
     end
   end

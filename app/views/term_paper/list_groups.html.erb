@@ -1,0 +1,16 @@
+<table>
+<% @faculties.each do |f| %>
+  <tr>
+    <td colspan="6"><%= f.name %></td>
+  </tr>
+  <tr>
+  <% (1 .. 6).each do |course| %>
+    <td width="16%" valign="top">
+    <% @groups[f.id][course].each do |g| %>
+      <div><%= link_to g.name, :action => "list_subjects", :id => g.id %></div>
+    <% end %>
+    </td>
+  <% end %>
+  </tr>
+<% end %>
+</table>

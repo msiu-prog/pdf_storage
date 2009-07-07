@@ -1,0 +1,19 @@
+<h2><%= @subject.name %></h2>
+
+<table>
+  <thead>
+    <th>Студент</th>
+    <th>Оценка</th>
+    <th>Курсовая работа</th>
+    <th>Действия</th>
+  </thead>
+  <% @students.each do |s| %>
+  <tr>
+    <td><%= s.full_name %></td>
+    <% term_paper = s.last_term_paper(@group_subject.id) %>
+    <td><%= mark(term_paper) %></td>
+    <td><%= download_link(term_paper) %></td>
+    <td><%= link_to "новая версия", :action => "create", :group_subject_id => @group_subject.id, :student_id => s.id %></td>
+  </tr>
+  <% end %>
+</table>

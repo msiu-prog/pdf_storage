@@ -1,0 +1,4 @@
+<% form_for :post, :url => {:action => "change_year"} do |f| %>
+<%= f.select("year", @year_list.map{|y| [study_period(y), y] }, :selected => @year) %>
+<%= f.submit "Изменить учебный год" %>
+<% end %>
