@@ -1,3 +1,0 @@
-<% @subjects.each do |s| %>
-<li><%= link_to s.subject.name, :action => "list_students", :group_id => s.group_id %></li>
-<% end %>

@@ -1,3 +1,0 @@
-<% @faculties.each do |f| %>
-<li><%= link_to f.short_name, :action => "list_groups", :id => f.id %></li>
-<% end %>
