@@ -70,6 +70,31 @@ class TermPaperController < ApplicationController
     @term_paper.mark = 0
   end
 
+  def create_commit
+    @term_paper = TermPaper.new(params[:term_paper])
+    @term_paper.save
+    unless @term_paper.errors.empty?
+      @group_subject = @term_paper.group_subject
+      @student = @term_paper.student
+      navigation_objects(@group_subject)
+      render :action => "create"
+    else
+      redirect_to :action => "list_students", :id => @term_paper.group_subject_id
+    end
+  end
+  
+  def download
+    @term_paper = TermPaper.find(params[:id])
+    send_data @term_paper.file, :filename => "termpaper.pdf"
+  end
+
+  def history
+    @group_subject = GroupSubject.find(params[:group_subject_id])
+    @student = Student.find(params[:student_id])
+    navigation_objects(@group_subject)
+    @term_papers = TermPaper.find(:all, :conditions => ["group_subject_id = ? AND student_id = ?", @group_subject.id, @student.id], :order => "updated_at DESC")
+  end
+
   def navigation_objects(object)
     if object.kind_of? GroupSubject
       @group = object.group

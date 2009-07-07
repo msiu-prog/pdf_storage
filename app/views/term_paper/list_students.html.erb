@@ -13,7 +13,10 @@
     <% term_paper = s.last_term_paper(@group_subject.id) %>
     <td><%= mark(term_paper) %></td>
     <td><%= download_link(term_paper) %></td>
-    <td><%= link_to "новая версия", :action => "create", :group_subject_id => @group_subject.id, :student_id => s.id %></td>
+    <td>
+      <%= link_to "внести к/р", :action => "create", :group_subject_id => @group_subject.id, :student_id => s.id %> |
+      <%= link_to "история", :action => "history", :group_subject_id => @group_subject.id, :student_id => s.id %>
+    </td>
   </tr>
   <% end %>
 </table>

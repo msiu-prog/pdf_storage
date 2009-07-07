@@ -1,10 +1,11 @@
 <h2><%= @student.full_name %></h2>
 <h3><%= @subject.name %></h3>
-<% form_for @term_paper, :url => "create_commit" do |f| %>
+<% form_for :term_paper, @term_paper, :url => "create_commit", :html => {:multipart => true} do |f| %>
+  <%= error_messages_for :term_paper, :object => @term_paper, :object_name => "qqq", :header_message => "ошибка! ааааааа!!!!!", :message => nil %>
   <%= f.hidden_field :group_subject_id %>
   <%= f.hidden_field :student_id %>
   Имя преподавателя: <%= f.text_field :teacher_name %> <br />
-  Оценка: <%= f.select :mark, TermPaper::MARKS.map{|k, v| [v, k]} %> <br />
-  Курсовая работа: <%= f.file_field :file %> <br />
+  Оценка: <%= f.select :mark, mark_list %> <br />
+  Курсовая работа: <%= f.file_field :up_file%> <br />
   <%= f.submit "Сохранить" %>
 <% end %>

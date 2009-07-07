@@ -1,6 +1,6 @@
 module TermPaperHelper
-  def navigation_list(main, faculty = nil, group = nil, subject = nil)
-    nodes = [faculty, group, subject].inject([]) do |list, node|
+  def navigation_list(main, faculty = nil, group = nil, group_subject = nil)
+    nodes = [faculty, group, group_subject].inject([]) do |list, node|
       break list unless node
       list << node
       list
@@ -9,7 +9,7 @@ module TermPaperHelper
     actions = ["list_groups", "list_subjects", "list_students"]
 
     (0 ... nodes.size).map do |i|
-      link_to nodes[i].name, :action => actions[i], :id => nodes[i].id
+      link_to nodes[i].navigation_list_title, :action => actions[i], :id => nodes[i].id
     end.unshift(link_to main.to_s, :action => "list_faculties")
   end
 
@@ -18,8 +18,12 @@ module TermPaperHelper
     term_paper.mark_string
   end
 
+  def mark_list
+    TermPaper::MARKS.map{|k, v| [v, k]}.sort_by{|e| e.last}
+  end
+
   def download_link(term_paper)
     return "&mdash;" unless term_paper
-    "download me"
+    link_to "download", :action => "download", :id => term_paper.id
   end
 end

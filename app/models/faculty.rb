@@ -4,4 +4,8 @@ class Faculty < ActiveRecord::Base
   def name
     "#{full_name} (#{short_name})"
   end
+
+  def navigation_list_title
+    short_name.to_s
+  end
 end

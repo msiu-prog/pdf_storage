@@ -1,0 +1,20 @@
+<h2><%= @student.full_name %></h2>
+<h3><%= @subject.name %></h3>
+
+<table>
+  <thead>
+    <th>Преподаватель</th>
+    <th>Оценка</th>
+    <th>Загрузить</th>
+  </thead>
+<% @term_papers.each do |tp| %>
+  <tr>
+    <td><%= tp.teacher_name %></td>
+    <td><%= mark(tp) %></td>
+    <td><%= download_link(tp) %></td>
+  </tr>
+<% end %>
+</table>
+
+
+

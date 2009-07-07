@@ -1,7 +1,7 @@
 <h1>Система учета и хранения курсовых работ МГИУ</h1>
 
 <% if controller.kind_of? TermPaperController %>
-  <%= navigation_list("Главная", @faculty, @group, @subject).join(" > ") %>
+  <%= navigation_list("Главная", @faculty, @group, @group_subject).join(" > ") %>
 <% end %>
 
 <br />
@@ -12,7 +12,7 @@
 
 <div id="sidebar">
   <div class="featurebox">
-    Тукщий учебный период: <%= study_period %>
+    Текущий учебный период: <%= study_period %>
     <%= link_to "Сменить учебный период", :controller => "term_paper", :action => "change_year" %>
   </div>
 </div>
