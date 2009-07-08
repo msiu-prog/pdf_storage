@@ -1,3 +1,7 @@
-<% @subjects.each do |s| %>
-<li><%= link_to s.subject.name, :action => "list_students", :id => s.id %></li>
+<% content_tag :ul, :class => "group_subjects" do %>
+  <% @subjects.each do |s| %>
+    <% content_tag_for :li, s do %>
+      <%= link_to s.subject.name, :action => "list_students", :id => s.id %>
+    <% end %>
+  <% end %>
 <% end %>

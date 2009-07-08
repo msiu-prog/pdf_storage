@@ -8,15 +8,15 @@
     <th>Действия</th>
   </thead>
   <% @students.each do |s| %>
-  <tr>
-    <td><%= s.full_name %></td>
-    <% term_paper = s.last_term_paper(@group_subject.id) %>
-    <td><%= mark(term_paper) %></td>
-    <td><%= download_link(term_paper) %></td>
-    <td>
-      <%= link_to "внести к/р", :action => "create", :group_subject_id => @group_subject.id, :student_id => s.id %> |
-      <%= link_to "история", :action => "history", :group_subject_id => @group_subject.id, :student_id => s.id %>
-    </td>
-  </tr>
+    <% content_tag_for :tr, s do %>
+      <td class="name"><%=h s.full_name %></td>
+      <% term_paper = s.last_term_paper(@group_subject.id) %>
+      <td class="mark"><%= mark(term_paper) %></td>
+      <td class="term_paper"><%= download_link(term_paper) %></td>
+      <td class="actions">
+        <%= link_to "внести к/р", :action => "create", :group_subject_id => @group_subject.id, :student_id => s.id %> |
+        <%= link_to "история", :action => "history", :group_subject_id => @group_subject.id, :student_id => s.id %>
+      </td>
+    <% end %>  
   <% end %>
 </table>

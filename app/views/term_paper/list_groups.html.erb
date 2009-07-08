@@ -1,13 +1,17 @@
 <table>
 <% @faculties.each do |f| %>
   <tr>
-    <td colspan="6"><%= f.name %></td>
+    <% content_tag_for :td, f, :colspan => "6" do %>
+      <%=h f.name %>
+    <% end %>
   </tr>
   <tr>
   <% (1 .. 6).each do |course| %>
     <td width="16%" valign="top">
     <% @groups[f.id][course].each do |g| %>
-      <div><%= link_to g.name, :action => "list_subjects", :id => g.id %></div>
+      <% div_for g do %>
+        <%= link_to g.name, :action => "list_subjects", :id => g.id %>
+      <% end %>
     <% end %>
     </td>
   <% end %>

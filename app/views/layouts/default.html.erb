@@ -1,18 +1,49 @@
-<h1>Система учета и хранения курсовых работ МГИУ</h1>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<% if controller.kind_of? TermPaperController %>
-  <%= navigation_list("Главная", @faculty, @group, @group_subject).join(" > ") %>
-<% end %>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Система учета и хранения курсовых работ МГИУ</title>
+    <%= stylesheet_link_tag "main.css", :media => "screen" %>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="header">
+        <h1>
+          Московский государственный индустриальный университет<br />
+          Система учета и хранения курсовых работ
+        </h1>
+      </div> <!-- header ends -->
 
-<br />
+      <div id="content-wrap">
+	<% if controller.kind_of? TermPaperController %>
+	<div id="navigation">
+          <%= navigation_list("Факультеты", @faculty, @group, @group_subject).join("/") %>
+	</div> <!-- navigation ends -->
+	<% end %>
 
-<%= yield %>
+	<div id="content">
+     
+	  <%= yield %>
+	  <br />
 
-<br />
+	  <div id="footer">
+            <p>
+              &copy; ИВЦ МГИУ, 2008-2009.
+            </p>
+          </div> <!-- footer ends -->
 
-<div id="sidebar">
-  <div class="featurebox">
-    Текущий учебный период: <%= study_period %>
-    <%= link_to "Сменить учебный период", :controller => "term_paper", :action => "change_year" %>
-  </div>
-</div>
+	</div> <!-- content ends -->
+
+	<div id="sidebar">
+	  <div class="featurebox">
+	    <p>Текущий учебный период: </p><h3><%= study_period %></h3>
+	    <%= link_to "Сменить учебный период", :controller => "term_paper", :action => "change_year" %>
+	  </div>
+	</div> <!-- sidebar ends -->
+
+      </div> <!-- content-wrap ends -->
+    </div> <!-- wrapper ends -->
+  </body>
+</html>
+

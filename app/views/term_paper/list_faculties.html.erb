@@ -1,4 +1,10 @@
-<% @faculties.each do |f| %>
-<li><%= link_to f.name, :action => "list_groups", :id => f.id %></li>
+<% content_tag :ul, :class => "faculties" do %>
+  <% @faculties.each do |f| %>
+    <% content_tag_for :li, f do %>
+      <%= link_to f.name, :action => "list_groups", :id => f.id %>
+    <% end %>
+  <% end %>
+    <% content_tag :li, :class => "faculty", :id => "faculty_0" do %>
+      <%= link_to "Все факультеты", :action => "list_groups", :id => 0 %>
+    <% end %>
 <% end %>
-<li><%= link_to "Все факультеты", :action => "list_groups", :id => 0 %></li>

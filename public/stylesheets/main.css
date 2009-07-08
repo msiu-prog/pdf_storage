@@ -1,0 +1,168 @@
+
+body {
+  padding: 0 0 20px;
+  color: #333;
+}
+
+a, a:link, a:link, a:link, a:hover {
+  background: transparent;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+a:link {
+  color: #663639;
+}
+
+a:visited {
+  color: #835959;
+}
+
+a:hover, a:active {
+  color: #9C203E;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #000;
+}
+
+h1 {
+  font-size: 186%;
+}
+
+h2 {
+  font-size: 136%;
+}
+
+h3 {
+  font-size: 126%;
+}
+
+h4 {
+  font-size: 116%;
+}
+
+h5 {
+  font-size: 106%;
+}
+
+
+ul {
+  list-style-type: none;
+}
+
+/* 
+ * header line 
+ */
+#header {
+  background: #555;
+  margin: 0 0 25px;
+  padding: 0 0 8px;
+}
+ 
+#header h1 {
+  font: 170% arial;
+  margin: 0 0 0 40px;
+  padding: 3px 0;
+  color: #fff;
+  border: none;
+  text-align: center;
+}
+
+/* 
+ * navigation list 
+ */
+#navigation {
+  padding: 0 0 8px;
+  margin: 0;
+  font-weight: bold;
+  font: bold 96%;
+}
+
+#navigation a, #navigation a:link, #navigation a:visited, #navigation a:hover, #navigation a:active {
+  text-decoration: none;
+  cursor: pointer;
+  padding: 4px 10px 2px;
+}
+
+/* 
+ * body wrappers 
+ */
+
+#wrapper {
+  min-width: 770px;
+  /*max-width: 1200px;*/
+  margin: 0 auto;
+  position: relative;
+}
+
+#content-wrap {
+  position: relative;
+  width: 100%;
+}
+
+#content {
+  width: 75%;
+  padding: 10px 10px 10px 10px;
+  margin: 0 50px;
+}
+
+/*
+ * sidebar
+ */
+
+#sidebar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20%;
+  border-top: 5px solid #999;
+  padding-top: 1px;
+  padding-bottom: 40px;
+}
+
+.featurebox {
+  color: #333;
+  padding: 15px 20px 20px;
+  border: 1px solid #d7d7d7;
+  margin: 0 0 1.5em;
+  background: #f6f6f6;
+}
+
+.featurebox p, .featurebox h1, .featurebox h2, .featurebox h3, .featurebox h4, .featurebox h5, .featurebox h6 {
+  margin: 0 0 .3em;
+  border-bottom: 1px solid #9C203E;
+  color: #9C203E;
+  text-align: center;
+} 
+
+.featurebox p {
+  border: none;
+  margin: 0 0 1em;
+  color: #444;
+} 
+
+.featurebox a {
+  font-weight: bold;
+}
+
+/*
+ * footer
+ */
+
+#footer {
+  width: 95%;
+  clear: both;
+  border-top: 1px solid #E3E8EE;
+  padding: 10px 0 30px;
+  font-size: 86%;
+  color: #999
+} 
+#footer p {
+  margin: 0
+} 
+
+#footer a:link {
+  color: #999
+}
+
