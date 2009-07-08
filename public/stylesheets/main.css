@@ -48,7 +48,7 @@ h5 {
 
 
 ul {
-  list-style-type: none;
+  list-style: none;
 }
 
 /* 
@@ -103,8 +103,9 @@ ul {
 
 #content {
   width: 75%;
+  float: left;
   padding: 10px 10px 10px 10px;
-  margin: 0 50px;
+  /*margin: 0 50px;*/
 }
 
 /*
@@ -112,7 +113,8 @@ ul {
  */
 
 #sidebar {
-  position: absolute;
+  /*position: absolute;*/
+  float: right;
   top: 0;
   right: 0;
   width: 20%;
@@ -151,7 +153,7 @@ ul {
  */
 
 #footer {
-  width: 95%;
+  /*width: 95%;*/
   clear: both;
   border-top: 1px solid #E3E8EE;
   padding: 10px 0 30px;
@@ -165,4 +167,133 @@ ul {
 #footer a:link {
   color: #999
 }
+
+/*
+ * style for objects
+ */
+
+ul.faculties, ul.group_subjects {
+  list-style: /*square*/none outside;
+}
+
+ul.faculties li:before, ul.group_subjects li:before {
+  color: #800000;  
+  font-size: 80%;
+  content: "▪";
+}
+
+table {
+  border: 2px solid #9C203E;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 3px;
+  min-width: 90px;
+  border: 1px solid #999;
+} 
+
+th {
+  background: #eee;
+  padding: 10px 6px;
+  text-align: center;
+  border: 1px solid #999;
+} 
+
+#groups td {
+  border-top: 1px solid #9C203E;
+  border-bottom: 1px solid #9C203E;
+  border-left: 1px solid #999;
+  border-right: 1px solid #999;
+} 
+
+#groups td.faculty {
+  text-align: center;
+  font-size: 100%;
+  color: #000;
+  background: #efefef;
+  padding: 6px;
+}
+
+#groups div.group {
+  text-align: center;
+}
+
+#groups div.course_label {
+  text-align: center;
+  width: 100%;
+  padding: 2px 2px 2px 2px;
+  border-bottom: 1px solid #999;
+  margin-left: -2px;
+  margin-bottom: 10px;
+  font-style: italic;
+  font-size: 96%;
+}
+
+#students tr.student:hover {
+  background: #FFF0F5; 
+} 
+
+#students td {
+  border: 1px solid #999;
+  background-color: transparent; 
+} 
+
+td.name {
+  text-align: left;
+} 
+
+td.mark, td.term_paper, td.date {
+  text-align: center;
+} 
+
+td.actions {
+  text-align: right;
+  line-height: 150%;
+  padding: 5px;
+} 
+
+td.actions a {
+  background: transparent;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0px 5px 0px 5px;
+} 
+
+td.actions a:link, td.actions a:visited  {
+  border: 1px solid #663639;
+  color: #663639;
+  background: #FDF5E6;
+}
+
+td.actions a:hover, td.actions a:active {
+  border: 1px solid #9C203E;
+  color: #9C203E;
+  background: #FFF5EE;
+}
+
+div.errorExplanation h2 {
+  color: #f00;
+}
+
+div.errorExplanation li {
+  font-size: 120%;
+}
+
+div.fieldWithErrors, div.usertip {
+  display: inline;
+}
+
+div.usertip {
+  width: 35%;
+  text-align: right;
+  float: left;
+  padding: 0px 10px 0px 10px;
+  line-height: 150%;
+}
+
+div.inputline {
+  padding: 5px 0px 5px 0px;
+}
+
 

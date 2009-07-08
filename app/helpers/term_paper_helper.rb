@@ -22,8 +22,8 @@ module TermPaperHelper
     TermPaper::MARKS.map{|k, v| [v, k]}.sort_by{|e| e.last}
   end
 
-  def download_link(term_paper)
+  def download_link(term_paper, label = "скачать")
     return "&mdash;" unless term_paper
-    link_to "download", :action => "download", :id => term_paper.id
+    link_to label.to_s, :action => "download", :id => term_paper.id
   end
 end

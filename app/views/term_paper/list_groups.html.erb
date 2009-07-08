@@ -1,4 +1,4 @@
-<table>
+<table id="groups">
 <% @faculties.each do |f| %>
   <tr>
     <% content_tag_for :td, f, :colspan => "6" do %>
@@ -8,6 +8,7 @@
   <tr>
   <% (1 .. 6).each do |course| %>
     <td width="16%" valign="top">
+    <div class="course_label"><%= course %> курс</div>
     <% @groups[f.id][course].each do |g| %>
       <% div_for g do %>
         <%= link_to g.name, :action => "list_subjects", :id => g.id %>

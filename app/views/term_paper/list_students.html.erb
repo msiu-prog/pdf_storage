@@ -1,6 +1,6 @@
 <h2><%= @subject.name %></h2>
 
-<table>
+<table id="students">
   <thead>
     <th>Студент</th>
     <th>Оценка</th>
@@ -14,7 +14,7 @@
       <td class="mark"><%= mark(term_paper) %></td>
       <td class="term_paper"><%= download_link(term_paper) %></td>
       <td class="actions">
-        <%= link_to "внести к/р", :action => "create", :group_subject_id => @group_subject.id, :student_id => s.id %> |
+        <%= link_to "внести к/р", :action => "create", :group_subject_id => @group_subject.id, :student_id => s.id %> 
         <%= link_to "история", :action => "history", :group_subject_id => @group_subject.id, :student_id => s.id %>
       </td>
     <% end %>  

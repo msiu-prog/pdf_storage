@@ -16,14 +16,15 @@
       </div> <!-- header ends -->
 
       <div id="content-wrap">
-	<% if controller.kind_of? TermPaperController %>
+
+
+	<div id="content">
+     	<% if controller.kind_of? TermPaperController %>
 	<div id="navigation">
           <%= navigation_list("Факультеты", @faculty, @group, @group_subject).join("/") %>
 	</div> <!-- navigation ends -->
 	<% end %>
 
-	<div id="content">
-     
 	  <%= yield %>
 	  <br />
 
