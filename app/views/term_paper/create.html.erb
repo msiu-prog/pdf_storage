@@ -1,5 +1,6 @@
 <h2><%=h @student.full_name %></h2>
 <h3><%=h @subject.name %></h3>
+
 <% form_for :term_paper, @term_paper, :url => "create_commit", :html => {:multipart => true} do |f| %>
   <%= error_messages_for :term_paper, :object => @term_paper, :header_message => "Ошибка при внесении информации", :message => nil %>
   <%= f.hidden_field :group_subject_id %>
@@ -14,7 +15,7 @@
   <% end %>
   <% content_tag :div, :class => "inputline" do %>
     <%= content_tag :div, "Курсовая работа:", :class => "usertip" %>
-    <%= f.file_field :up_file%>
+    <%= f.file_field :up_file %>
   <% end %> 
   <% content_tag :div, :class => "inputline" do %>
     <%= content_tag :div, "&nbsp;", :class => "usertip" %>

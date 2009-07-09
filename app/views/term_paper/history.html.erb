@@ -1,22 +1,25 @@
 <h2><%= @student.full_name %></h2>
 <h3><%= @subject.name %></h3>
 
-<table id="history">
-  <thead>
-    <th>Преподаватель</th>
-    <th>Оценка</th>
-    <th>Курсовая работа</th>
-    <th>Время внесения</th>
-  </thead>
-<% @term_papers.each do |tp| %>
-  <% content_tag_for :tr, tp do %>
-    <td class="name"><%=h tp.teacher_name %></td>
-    <td class="mark"><%= mark(tp) %></td>
-    <td class="term_paper"><%= download_link(tp) %></td>
-    <td class="date"><%= tp.updated_at.strftime "%d.%m.%Y %H:%M" %></td>
+<% if @term_papers.empty? %>
+  <p>У данного студента нет курсовых работ по этому предмету.</p>
+<% else %>
+  <table id="history">
+    <thead>
+      <th>Преподаватель</th>
+      <th>Оценка</th>
+      <th>Курсовая работа</th>
+      <th>Время внесения</th>
+    </thead>
+  <% @term_papers.each do |tp| %>
+    <% content_tag_for :tr, tp do %>
+      <td class="name"><%=h tp.teacher_name %></td>
+      <td class="mark"><%= mark(tp) %></td>
+      <td class="term_paper"><%= download_link(tp) %></td>
+      <td class="date"><%= tp.updated_at.strftime "%d.%m.%Y %H:%M" %></td>
+    <% end %>
   <% end %>
+  </table>
 <% end %>
-</table>
-
 
 

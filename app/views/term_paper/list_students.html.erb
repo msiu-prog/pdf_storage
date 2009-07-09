@@ -1,14 +1,21 @@
 <h2><%= @subject.name %></h2>
 
+<% if session[:errors] %>
+  <div>Некоторые курсовые работы не сохранены</div>
+<% end %>
+
 <table id="students">
   <thead>
-    <th>Студент</th>
-    <th>Оценка</th>
-    <th>Курсовая работа</th>
-    <th>Действия</th>
+    <tr>
+      <th>Студент</th>
+      <th>Оценка</th>
+      <th>Курсовая работа</th>
+      <th>Действия</th>
+    <tr>
   </thead>
+  <tbody>
   <% @students.each do |s| %>
-    <% content_tag_for :tr, s do %>
+    <% content_tag_for :tr, s, :class => student_row_type(s) do %>
       <td class="name"><%=h s.full_name %></td>
       <% term_paper = s.last_term_paper(@group_subject.id) %>
       <td class="mark"><%= mark(term_paper) %></td>
@@ -19,4 +26,12 @@
       </td>
     <% end %>  
   <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td class="actions" colspan="4">
+	<%= link_to "Внести несколько курсовых работ", :action => "multi_create", :id => @group_subject.id %>
+      </td>
+    </tr>
+  </tfoot>
 </table>

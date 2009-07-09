@@ -19,11 +19,21 @@ module TermPaperHelper
   end
 
   def mark_list
-    TermPaper::MARKS.map{|k, v| [v, k]}.sort_by{|e| e.last}
+    (TermPaper::MARKS.to_a << [-1, ""]).map{|k, v| [v, k]}.sort_by{|e| e.last}
   end
 
   def download_link(term_paper, label = "скачать")
     return "&mdash;" unless term_paper
     link_to label.to_s, :action => "download", :id => term_paper.id
+  end
+
+  def student_row_type(student)
+    if session[:term_papers_add_res][student.id].nil?
+      nil
+    elsif session[:term_papers_add_res][student.id]
+      :added
+    else
+      :not_added
+    end
   end
 end

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090703102246) do
+ActiveRecord::Schema.define(:version => 20090709084648) do
 
   create_table "faculties", :force => true do |t|
     t.string   "short_name", :limit => 16, :null => false
@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(:version => 20090703102246) do
     t.binary   "file",             :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "filename",         :null => false
   end
 
 end

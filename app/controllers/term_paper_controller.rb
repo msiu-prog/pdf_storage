@@ -1,5 +1,6 @@
 class TermPaperController < ApplicationController
   before_filter :preset_year, :prepare_for_navigation_list
+  before_filter :clear_errors, :except => :list_students
 
   def prepare_for_navigation_list
     @faculty = nil
@@ -67,7 +68,7 @@ class TermPaperController < ApplicationController
     @term_paper = TermPaper.new
     @term_paper.group_subject_id = @group_subject.id
     @term_paper.student_id = @student.id
-    @term_paper.mark = 0
+    @term_paper.mark = -1
   end
 
   def create_commit
@@ -82,10 +83,43 @@ class TermPaperController < ApplicationController
       redirect_to :action => "list_students", :id => @term_paper.group_subject_id
     end
   end
-  
+ 
+  def multi_create
+    @group_subject = GroupSubject.find(params[:id])
+    navigation_objects(@group_subject)
+
+    @students = @group.students.sort do |a, b|
+      100*(a.last_name <=> b.last_name) +
+      10*(a.first_name <=> b.first_name) +
+      (a.second_name <=> b.second_name)
+    end
+
+    @term_papers = @students.map do |s|
+      TermPaper.new(:group_subject_id => @group_subject.id, :student_id => s.id, :mark => -1)
+    end
+  end
+
+  def multi_create_commit
+    term_papers = params[:term_papers] || Hash.new
+    term_papers.each_value do |tp|
+      if tp && (tp[:mark] && tp[:mark].to_i >= 0 || tp[:up_file])
+        res = false
+        if tp[:mark] && tp[:mark].to_i >=0 && tp[:up_file]
+          new_term_paper = TermPaper.new(tp)
+          new_term_paper.teacher_name = params[:teacher_name]
+          new_term_paper.group_subject_id = params[:group_subject_id]
+          res = new_term_paper.save
+        end
+        session[:term_papers_add_res][tp[:student_id].to_i] = res
+        session[:errors] ||= !res
+      end
+    end
+    redirect_to :action => "list_students", :id => params[:group_subject_id]
+  end
+ 
   def download
     @term_paper = TermPaper.find(params[:id])
-    send_data @term_paper.file, :filename => "termpaper.pdf"
+    send_data @term_paper.file, :filename => @term_paper.filename
   end
 
   def history
@@ -95,6 +129,7 @@ class TermPaperController < ApplicationController
     @term_papers = TermPaper.find(:all, :conditions => ["group_subject_id = ? AND student_id = ?", @group_subject.id, @student.id], :order => "updated_at DESC")
   end
 
+  private
   def navigation_objects(object)
     if object.kind_of? GroupSubject
       @group = object.group
@@ -104,5 +139,10 @@ class TermPaperController < ApplicationController
       @faculty = object.faculty
       navigation_objects(@faculty)
     end
+  end
+
+  def clear_errors
+    session[:term_papers_add_res] = Hash.new
+    session[:errors] = false
   end
 end

@@ -1,5 +1,5 @@
 <% form_for :post, :url => {:action => "change_year"} do |f| %>
-  <h2>Выберите год:</h2>
+  <p style="font-size: 136%; font-weight: bold;">Выберите год:</p>
   <%= f.select("year", @year_list.map{|y| [study_period(y), y] }, :selected => @year) %>
   <%= f.submit "Сменить" %>
 <% end %>

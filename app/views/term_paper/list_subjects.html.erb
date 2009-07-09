@@ -1,7 +1,11 @@
-<% content_tag :ul, :class => "group_subjects" do %>
-  <% @subjects.each do |s| %>
-    <% content_tag_for :li, s do %>
-      <%= link_to s.subject.name, :action => "list_students", :id => s.id %>
+<% if @subjects.empty? %>
+  <p>У данной группы нет предметов.</p>
+<% else %>
+  <% content_tag :ul, :class => "group_subjects" do %>
+    <% @subjects.each do |s| %>
+      <% content_tag_for :li, s do %>
+        <%= link_to s.subject.name, :action => "list_students", :id => s.id %>
+      <% end %>
     <% end %>
   <% end %>
 <% end %>

@@ -46,6 +46,9 @@ h5 {
   font-size: 106%;
 }
 
+#content h2, #content h3 {
+  padding-left: 1em;
+}
 
 ul {
   list-style: none;
@@ -247,6 +250,12 @@ td.mark, td.term_paper, td.date {
   text-align: center;
 } 
 
+td.check {
+  text-align: center;
+  color: #090;
+  font-size: 120%;
+}
+
 td.actions {
   text-align: right;
   line-height: 150%;
@@ -296,4 +305,10 @@ div.inputline {
   padding: 5px 0px 5px 0px;
 }
 
+tr.student_added {
+  background: #EFC;
+}
 
+tr.student_not_added {
+  background: #FEB;
+}

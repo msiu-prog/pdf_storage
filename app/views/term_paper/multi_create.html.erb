@@ -1,0 +1,39 @@
+<h2>Группа <%=h @group.name %></h2>
+<h3><%=h @subject.name %></h3>
+
+<% form_tag({:action => 'multi_create_commit'}, :multipart => true) do %>
+  <%= hidden_field_tag :group_subject_id, @group_subject.id %>
+  
+  <% content_tag :div, :class => "inputline" do %>
+    <%= content_tag :div, "Имя преподавателя:", :class => "usertip" %>
+    <%= text_field_tag :teacher_name, "", :size => 30 %> 
+  <% end %>
+
+  <table id="students">
+    <thead>
+      <th>Студент</th>
+      <th>&#8707;<sup>*</sup></th>
+      <th>Оценка</th>
+      <th>Курсовая работа</th>
+    </thead>
+
+    <tbody>
+    <% (0 ... @students.size).each do |i| %>
+      <% content_tag_for(:tr, @students[i]) do %>
+        <%= hidden_field_tag "term_papers[#{i}][student_id]", @students[i].id %>
+        <td class="name"><%= h @students[i].full_name %></td>
+	<% term_paper = @students[i].last_term_paper(@group_subject.id) %>
+	<td class="check"><%= !term_paper.nil? ? "&#10004;" : "" %></td>
+        <td class="mark"><%= select_tag "term_papers[#{i}][mark]", options_for_select(mark_list, [-1, ""]) %></td>
+        <td class="term_paper"><%= file_field_tag "term_papers[#{i}][up_file]" %></td>
+      <% end %>
+    <% end %>
+    </tbody>
+
+    <tfoot>
+      <tr>
+	<td colspan="4"><%= submit_tag "Сохранить" %></td>
+      </tr>
+    </tfoot>
+  </table>
+<% end %>

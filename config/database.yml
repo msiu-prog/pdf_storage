@@ -13,7 +13,7 @@ development:
   encoding: unicode
   database: pdf_storage_development
   pool: 5
-  port: 2836
+  port: 5432
   username: pdf_storage
   password: pdf_storage
 
