@@ -31,9 +31,9 @@ module TermPaperHelper
     if session[:term_papers_add_res][student.id].nil?
       nil
     elsif session[:term_papers_add_res][student.id]
-      :added
+      :student_added
     else
-      :not_added
+      :student_not_added
     end
   end
 end

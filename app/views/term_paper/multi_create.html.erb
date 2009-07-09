@@ -1,7 +1,7 @@
 <h2>Группа <%=h @group.name %></h2>
 <h3><%=h @subject.name %></h3>
 
-<% form_tag({:action => 'multi_create_commit'}, :multipart => true) do %>
+<% form_tag({:action => 'multi_create_commit'}, :multipart => true, :onsubmit => "return check_teacher_name(this);") do %>
   <%= hidden_field_tag :group_subject_id, @group_subject.id %>
   
   <% content_tag :div, :class => "inputline" do %>
