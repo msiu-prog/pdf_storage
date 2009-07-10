@@ -28,12 +28,16 @@ module TermPaperHelper
   end
 
   def student_row_type(student)
-    if session[:term_papers_add_res][student.id].nil?
-      nil
+    if session[:term_papers_add_res][student.id].nil? || @group_subject.id != session[:group_subject_id]
+      "student"
     elsif session[:term_papers_add_res][student.id]
-      :student_added
+      "student_added"
     else
-      :student_not_added
+      "student_not_added"
     end
+  end
+
+  def html_options_for_student(student)
+    {:class => student_row_type(student), :id => dom_id(student, nil)}
   end
 end

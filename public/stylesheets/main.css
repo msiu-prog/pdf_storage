@@ -192,7 +192,6 @@ table {
 
 td {
   padding: 3px;
-  min-width: 90px;
   border: 1px solid #999;
 } 
 
@@ -202,6 +201,10 @@ th {
   text-align: center;
   border: 1px solid #999;
 } 
+
+td.groups_list {
+  min-width: 90px;
+}
 
 #groups td {
   border-top: 1px solid #9C203E;
@@ -216,6 +219,8 @@ th {
   color: #000;
   background: #efefef;
   padding: 6px;
+  /*min-width: 540px;*/
+  width: 540px;
 }
 
 #groups div.group {
@@ -254,6 +259,7 @@ td.check {
   text-align: center;
   color: #090;
   font-size: 120%;
+  min-width: 40px;
 }
 
 td.actions {
@@ -285,6 +291,12 @@ div.errorExplanation h2 {
   color: #f00;
 }
 
+div.errorExplanation p {
+  color: #f00;
+  font-size: 120%;
+  padding: 3px;
+}
+
 div.errorExplanation li {
   font-size: 120%;
 }
@@ -305,10 +317,34 @@ div.inputline {
   padding: 5px 0px 5px 0px;
 }
 
-tr.student_added {
+#students tr.student_added {
   background: #EFC;
 }
 
-tr.student_not_added {
+#students tr.student_added:hover {
+  background: #DF9;
+}
+
+#students tr.student_not_added {
   background: #FEB;
 }
+
+#students tr.student_not_added:hover {
+  background: #ffe699;
+}
+
+
+div.student_added_example {
+  background: #EFC;
+  width: 30px;
+  border: 2px solid #9C203E;
+  display: inline;
+}
+
+div.student_not_added_example {
+  background: #FEB;
+  width: 30px;
+  border: 2px solid #9C203E;
+  display: inline;
+}
+

@@ -114,6 +114,7 @@ class TermPaperController < ApplicationController
         session[:errors] ||= !res
       end
     end
+    session[:group_subject_id] = params[:group_subject_id].to_i
     redirect_to :action => "list_students", :id => params[:group_subject_id]
   end
  
@@ -142,7 +143,10 @@ class TermPaperController < ApplicationController
   end
 
   def clear_errors
-    session[:term_papers_add_res] = Hash.new
+    unless params[:action] == "multi_create" && params[:id].to_i == session[:group_subject_id]
+      session[:group_subject_id] = 0
+      session[:term_papers_add_res] = Hash.new
+    end
     session[:errors] = false
   end
 end

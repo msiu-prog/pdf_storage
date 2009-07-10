@@ -15,12 +15,15 @@ class TermPaper < ActiveRecord::Base
   validates_presence_of :teacher_name, :message => "Должен быть указан преподаватель"
   validates_presence_of :mark, :message => "Должна быть указана оценка"
   validates_presence_of :file, :message => "Должен присутствовать файл"
-  validates_presence_of :filename, :message => nil
+  validates_presence_of :filename, :message => ""
 
   def validate
     g_id = self.group_subject.group.id    
     unless self.student.groups.inject(false){|res, g| res || (g.id == g_id)}
       errors.add("group_subject_id", "У данного студента нет такого предмета")
+    end
+    unless MARKS.has_key? self.mark.to_i
+      errors.add("mark", "Должна быть указана оценка")
     end
   end
 

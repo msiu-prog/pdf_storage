@@ -1,7 +1,8 @@
 <h2><%= @subject.name %></h2>
 
-<% if session[:errors] %>
-  <div>Некоторые курсовые работы не сохранены</div>
+<% if session[:errors] && @group_subject.id == session[:group_subject_id] %>
+  <% add_featurebox :student_color_legend %>
+  <div class="errorExplanation"><p>Некоторые курсовые работы не сохранены.</p></div>
 <% end %>
 
 <table id="students">
@@ -15,7 +16,7 @@
   </thead>
   <tbody>
   <% @students.each do |s| %>
-    <% content_tag_for :tr, s, :class => student_row_type(s) do %>
+    <% content_tag :tr, html_options_for_student(s) do %>
       <td class="name"><%=h s.full_name %></td>
       <% term_paper = s.last_term_paper(@group_subject.id) %>
       <td class="mark"><%= mark(term_paper) %></td>

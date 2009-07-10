@@ -1,6 +1,10 @@
 <h2>Группа <%=h @group.name %></h2>
 <h3><%=h @subject.name %></h3>
 
+<% if @group_subject.id == session[:group_subject_id] %>
+  <% add_featurebox :student_color_legend %>
+<% end %>
+
 <% form_tag({:action => 'multi_create_commit'}, :multipart => true, :onsubmit => "return check_teacher_name(this);") do %>
   <%= hidden_field_tag :group_subject_id, @group_subject.id %>
   
@@ -12,14 +16,14 @@
   <table id="students">
     <thead>
       <th>Студент</th>
-      <th>&#8707;<sup>*</sup></th>
+      <th>&#8707;<sup style="color:#9C203E;">*</sup></th>
       <th>Оценка</th>
       <th>Курсовая работа</th>
     </thead>
 
     <tbody>
     <% (0 ... @students.size).each do |i| %>
-      <% content_tag_for(:tr, @students[i]) do %>
+      <% content_tag :tr, html_options_for_student(@students[i]) do %>
         <%= hidden_field_tag "term_papers[#{i}][student_id]", @students[i].id %>
         <td class="name"><%= h @students[i].full_name %></td>
 	<% term_paper = @students[i].last_term_paper(@group_subject.id) %>
@@ -32,8 +36,11 @@
 
     <tfoot>
       <tr>
-	<td colspan="4"><%= submit_tag "Сохранить" %></td>
+	<td class="control"><%= submit_tag "Сохранить", :style => "float:right;" %></td>
+	<td colspan="3" class="control"><%= button_to "Вернуться к списку", :action => "list_students", :id => @group_subject.id %></td>
       </tr>
     </tfoot>
   </table>
 <% end %>
+
+<% add_featurebox :exist_box %>

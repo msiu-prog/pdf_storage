@@ -7,7 +7,7 @@
   </tr>
   <tr>
   <% (1 .. 6).each do |course| %>
-    <td width="16%" valign="top">
+    <td width="16%" valign="top" class="groups_list">
     <div class="course_label"><%= course %> курс</div>
     <% @groups[f.id][course].each do |g| %>
       <% div_for g do %>
